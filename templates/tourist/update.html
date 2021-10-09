@@ -1,0 +1,58 @@
+{% extends 'base/dash.html' %}
+{% block content %}
+<center>
+<!--<div class="container">
+        <div class="row">
+            <div class="col-sm-6 mx-auto" style="margin-top: 10px">-->
+<h2 align='center'>Tourist Place Registration Form</h2>
+    <form method = "POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Owner Name:</label>
+            <div class="col-10">
+                <input name='ownername' class="form-control" type="text" placeholder='Same Owner Name as you Signup' >
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Place Name:</label>
+            <div class="col-10">
+                <input name='place_name' class="form-control" type="text" >
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Address:</label>
+            <div class="col-10">
+                <input name='address' class="form-control" type="text" >
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Description:</label>
+            <div class="col-10">
+            <div class='row-8'>
+                <input name='des' class="form-control" type="text" >
+            </div></div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Price:</label>
+            <div class="col-10">
+                <input name='price' class="form-control" type="number" >
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">District:</label>&emsp;
+            {{ form.place }}
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Image:</label>&emsp;
+            {{ form.image }}
+        </div>
+        
+        {{ form.media }}
+        
+        <button type="submit" class="btn btn-primary tm-btn tm-btn-search text-uppercase">submit</button>
+    </form>
+    </div>
+    </div>
+    </div>
+</center>
+{% endblock %}

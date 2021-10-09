@@ -1,0 +1,22 @@
+{% extends 'base/dash.html' %}
+{% load static %}
+{% block content %}
+{% for views in v %}
+
+<div class="tm-container-outer">
+<section class="tm-slideshow-section">
+<div class="tm-right tm-slideshow tm-slideshow-highlight">
+<img src="{{ MEDIA_URL }}/media/{{ views.image }}"  alt="{{ views.place_name }}" width='500' height='400' /><br>
+</div>
+<div class="tm-slideshow-description tm-bg-primary">
+<h3><b>Place name:&emsp;&nbsp;</b>{{ views.place_name }}<br>
+<b>Owner name:&ensp;</b>{{views.ownername }}<br>
+<b>Address:&emsp;&emsp;&emsp;</b>{{ views.address}}<br>
+<b>Describtion:&emsp;&nbsp;</b>{{views.des}}<br>
+<b>Price:&emsp;</b>{{ views.price }}/-<br>
+</h3>
+</center></div>
+</section>
+</div>
+{% endfor %}
+{% endblock %}

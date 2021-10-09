@@ -1,0 +1,25 @@
+{% extends 'base/indexx.html' %}
+{% load static %}
+{% block content %}
+<br>
+<h3 align='center'>Tourist Place at {{ place_r }}</h3>
+<div class="tab-pane fade show active" id="4a">
+{% for row in place_list %}
+                    <!-- Current Active Tab WITH "show active" classes in DIV tag -->
+                        <div class="tm-recommended-place-wrap">
+                            <div class="tm-recommended-place" >
+                                <img src="{{ MEDIA_URL }}/media/{{ row.image }}" alt="{{ row.place_name }}" class="img-fluid tm-recommended-img">
+                                <div class="tm-recommended-description-box">
+                                    <h3 class="tm-recommended-title">{{row.place_name}}</h3>
+                                    <p class="tm-text-highlight">{{row.place}}</p>
+                                    <p class="tm-text-gray">{{row.des}}</p>   
+                                </div>
+                                <a href="{% url 'tourist_details' row.id %}" class="tm-recommended-price-box">
+                                    <p class="tm-recommended-price">{{row.price}}</p>
+                                    <p class="tm-recommended-price-link">Book Now</p>
+                                </a>                        
+                            </div>
+{% endfor %}
+    
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base/indexx.html' %}
+{% load static %}
+{% block content %}
+
+<h2 align="center">Details about {{place_info.place_name}}</h2><br>
+<div class="tm-container-outer" id="tm-section-2">
+                <section class="tm-slideshow-section">
+                 <div class="tm-right tm-slideshow tm-slideshow-highlight">
+<img src="{{ MEDIA_URL }}/media/{{ place_info.image }}"  alt="{{ place_info.place_name }}" width='500' height='400' /><br>
+</div>
+<div class="tm-slideshow-description tm-bg-primary">
+<h2>{{ place_info.place_name }}</h2>
+<h6>Address:{{ place_info.address}}<br>
+Describtion:{{place_info.des}}<br>
+Price:{{ place_info.price }}/-<br>
+<center><a class="text-uppercase tm-btn tm-btn-white tm-btn-white-primary" href="{% url 'reserve_seat' place_info.id %}" >book</a></h6>
+</center></div>
+</section>
+</div>
+<!--class="btn btn-primary tm-btn tm-btn-search text-uppercase-->
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base/bus_dash.html' %}
+{% load static %}
+{% block content %}
+<h3 align="center"><b>List of Your Buses</b></h3>
+<div class="tab-pane fade show active" id="4a">
+{% for row in v %}
+ <div class="tm-recommended-place-wrap">
+    <div class="tm-recommended-place" >
+        <img src="{{ MEDIA_URL }}/media/{{ row.image }}" alt="{{ row.bus_name }}" class="img-fluid tm-recommended-img">
+        <div class="tm-recommended-description-box">
+            <h3 class="tm-recommended-title">{{row.bus_name}}</h3>
+            <p class="tm-text-highlight">{{row.source}}  <b>To</b>  {{row.dest}}</p>
+            <p class="tm-text-gray">{{row.time1 }}</p>
+            <p class="tm-text-gray">{{row.price }}/-</p>
+        </div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}

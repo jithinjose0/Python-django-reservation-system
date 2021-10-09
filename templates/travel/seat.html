@@ -1,0 +1,27 @@
+{% extends 'base/indexx.html' %}
+{% block content %}
+<br><br>
+<div class="container">
+        <div class="row">
+            <div class="col-sm-6 mx-auto" style="margin-top: 10px">
+            <h2>Reserve Seat </h2>
+<form action="{% url 'bus_payment' %}" method="post">
+            {% csrf_token %}
+            <div>
+                <input name='no_seats' class="form-control" type="number" placeholder="Enter No of Seats to Book Here">
+            </div>
+            <div>
+                <input name='date' class="form-control" type="date">
+            </div>
+            <br>
+            
+            <div class="form-group" >
+                <input type="hidden" name="bus_id" id="bus_id" value="{{ bus_id.id }}" readonly />
+                <button class="btn btn-outline-info" type="submit">Book</button>
+            </div>
+            {{error}}
+        </form>
+        </div>
+        </div>
+        </div>
+{% endblock %}

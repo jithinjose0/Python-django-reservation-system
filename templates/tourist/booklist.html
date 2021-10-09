@@ -1,0 +1,33 @@
+{% extends 'base/dash.html' %}
+{% block content %}
+<center>
+<h3>Booked list</h3>
+<table class="table ">
+    <thead style="background-color: blue;color: white;">
+    
+    <td>User&emsp;</td>
+    <td>PLACE NAME&emsp;</td>
+    <td>NUM OF MEMBERS</td>
+    <td>PRICE&emsp;</td>
+    <td>DATE&emsp;</td>
+    <td>TIME&emsp;</td>
+    <td>STATUS&emsp;</td>
+    <td>CANCEL&emsp;</td>
+
+
+    </thead>
+{% for row in book_list %}
+<tr>
+    <td>{{row.name}}&emsp;</td>
+    <td>{{row.place_name}}&emsp;</td>
+    <td>{{row.nos}}&emsp;</td>
+    <td>{{row.price}}&emsp;</td>
+    <td>{{row.date}}&emsp;</td>
+    <td>{{row.time}}&emsp;</td>
+    <td>{{row.status}}&emsp;</td>
+    <td><a href="/touristpage/del/{{row.id}}">Delete</a></td>
+</tr>
+    {% endfor %}
+</table>
+</center>
+{% endblock %}

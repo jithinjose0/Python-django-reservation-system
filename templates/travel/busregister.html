@@ -1,0 +1,61 @@
+{% extends 'base/travel.html' %}
+{% block content %}
+<center>
+<div class="container">
+        <div class="row">
+            <div class="col-sm-6 mx-auto" style="margin-top: 10px">
+<h2>Bus Registration Form</h2>
+    <form method = "POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Owner Name:</label>
+            <div class="col-10">
+                <input name='ownername' class="form-control" type="text" placeholder='Same Owner Name as you Signup' >
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Bus Name:</label>
+            <div class="col-10">
+                <input name='bus_name' class="form-control" type="text" >
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Source:</label>&emsp;
+            {{ form.source }}
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Destination:</label>&emsp;
+            {{ form.dest }}
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Time:</label>&emsp;
+            {{ form.time1 }}
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Total seats:</label>
+            <div class="col-10">
+                <input name='Total_seats' class="form-control" type="number" >
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Price:</label>
+            <div class="col-10">
+                <input name='price' class="form-control" type="number" >
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Image:</label>&emsp;
+            {{ form.image }}
+        </div>
+        
+        {{ form.media }}
+        
+        <button type="submit" class="btn btn-primary tm-btn tm-btn-search text-uppercase">submit</button>
+    </form>
+    </div>
+    </div>
+    </div>
+</center>
+<br><br><br><br><br><br><br><br><br><br>
+{% endblock %}

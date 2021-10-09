@@ -1,0 +1,23 @@
+{% extends 'base/indexx.html' %}
+{% block content %}
+<h3 align="center"><b>List of Buses</b></h3>
+<div class="tab-pane fade show active" id="4a">
+{% for row in bus_list %}
+ <div class="tm-recommended-place-wrap">
+    <div class="tm-recommended-place" >
+        <img src="{{ MEDIA_URL }}/media/{{ row.image }}" alt="{{ row.bus_name }}" class="img-fluid tm-recommended-img">
+        <div class="tm-recommended-description-box">
+            <h3 class="tm-recommended-title">{{row.bus_name}}</h3>
+            <p class="tm-text-highlight">{{row.source}}  <b>To</b>  {{row.dest}}</p>
+            <p class="tm-text-gray">{{row.time1 }}</p>
+
+        </div>
+        <a href="{% url 'reserve_bus_seat' row.id %}" class="tm-recommended-price-box">
+        <p class="tm-recommended-price">{{row.price}}</p>
+        <p class="tm-recommended-price-link">Book Now</p>
+        </a>                        
+    </div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}

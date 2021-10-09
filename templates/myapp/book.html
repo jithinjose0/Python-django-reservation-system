@@ -1,0 +1,57 @@
+{% extends 'base/indexx.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+        <div class='row'>
+            <div class="col-sm-8 mx-auto" style="margin-top: 20px">
+	<h1 align="center">Booking Details</h1>
+	<div class="booking">
+		<form method="post" action="{% url 'payment_confirmation' %}">
+			{% csrf_token %}
+			<input type="hidden" id="place_id" name="place_id" value="{{ show.id }}">
+			<div class="form-group row">
+                <label for="example-email-input" class="col-2 col-form-label">Place name:</label>
+                <div class="col-10">
+                    <input id="name" class="form-control" name="name" value="{{ show.place_name }}" readonly>
+                </div>
+            </div>
+			<div class="form-group row">
+			<label for="example-email-input" class="col-2 col-form-label">Members:</label>
+				<div class="col-10">
+					<input id="mem" class="form-control" name="mem" value="{{ seats }}"  readonly>
+			</div>
+			</div>
+			<div class="form-group row">
+			<label for="example-email-input" class="col-2 col-form-label">Date:</label>
+				<div class="col-10">
+					<input id="date" class="form-control" name="date" value="{{ date_r }}"  readonly>
+			</div>
+			</div>
+			<div class="form-group row">
+			<label for="example-email-input" class="col-2 col-form-label">Time:</label>
+				<div class="col-10">
+					<input id="timeslot" class="form-control" name="timeslot" value="{{ timeslot }}"  readonly>
+			</div>
+			</div>
+			<div class="form-group row">
+			<label for="example-email-input" class="col-2 col-form-label">Payable Amount:</label>
+				<div class="col-10">
+					<input id="amount" class="form-control" name="amount" value="{{ cost }}"  readonly>
+			</div>
+			</div>
+			<!--tourist name:<input id="name" name="name" value="{{ show.place_name }}" readonly>
+			Seats:<input id="mem" name="mem" value="{{ seats }}"  readonly>
+			Date:<input id="date" name="date" value="{{ date_r }}"  readonly>
+			Time:<input id="timeslot" name="timeslot" value="{{ timeslot }}"  readonly>
+			Payable Amount:<input id="amount" name="amount" value="{{ cost }}"  readonly><br><br>-->
+			<div class="form-group row">
+            <label class="col-2 col-form-label">Payment type:</label>&emsp;
+			{{ form.payment_type }}
+			</div>
+			<center><button class="btn btn-primary tm-btn tm-btn-search text-uppercase" type="submit">Pay</button></center>
+		</form>
+	</div>
+</div>
+</div>
+</div>
+{% endblock %}

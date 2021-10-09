@@ -1,0 +1,73 @@
+{% extends 'base/indexx.html' %}
+{% block content %}
+<h3>{{msg}}</h3>
+<h2>List of Booked</h2>
+<table class="table table-striped">
+    <thead style="background-color: blue;color: white;">
+    
+    <td>PLACE NAME</td>
+    <td>DISTRICT</td>
+    <td>NUM OF MEMBERS</td>
+    <td>PRICE</td>
+    <td>DATE</td>
+    <td>TIME</td>
+    <td>STATUS</td>
+    <td>CANCEL</td>
+
+
+    </thead>
+
+    {% for row in book_list %}
+    <tr>
+        
+        <td>{{row.place_name}}</td>
+        <td>{{row.place}}</td>
+        <td>{{row.nos}}</td>
+        <td>{{row.price}}</td>
+        <td>{{row.date}}</td>
+        <td>{{row.time}}</td>
+        <td>{{row.status}}</td>
+        <td><a href="/delete/{{row.id}}">Delete</a>
+
+
+    </tr>
+    {% endfor %}
+</table>
+<h2>Bus Booked List</h2>
+<table class="table table-striped">
+    <thead style="background-color: blue;color: white;">
+    
+    <td>BUS NAME</td>
+    <td>SOURCE</td>
+    <td>DESTINATION</td>
+    <td>NUM OF MEMBERS</td>
+    <td>PRICE</td>
+    <td>DATE</td>
+    <td>TIME</td>
+    <td>STATUS</td>
+    <td>CANCEL</td>
+
+
+    </thead>
+
+    {% for row in book_list_bus %}
+    <tr>
+        
+        <td>{{row.bus_name}}</td>
+        <td>{{row.source}}</td>
+        <td>{{row.dest}}</td>
+        <td>{{row.nos}}</td>
+        <td>{{row.price}}</td>
+        <td>{{row.date}}</td>
+        <td>{{row.time}}</td>
+        <td>{{row.status}}</td>
+        <td><a href="/delete/{{row.id}}">Delete</a>
+
+
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+{% endblock %}

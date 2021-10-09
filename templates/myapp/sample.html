@@ -1,0 +1,41 @@
+{% extends 'base/indexx.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+<div class="row tm-banner-row" id="tm-section-search">
+<form action="{% url 'search' %}" method="POST">
+    {% csrf_token %}
+    <div class="form-row tm-search-form-row">
+        <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
+            <input name='place' class="form-control" type="text" placeholder='District'>
+        </div>&emsp;
+        <div class="">
+            <button type="submit" class="btn btn-primary tm-btn tm-btn-search text-uppercase" >Search</button>
+        </div>
+    </div>
+</form>
+</div>
+</div>
+
+
+
+<div class="tab-pane fade show active" id="4a">
+{% for row in tourists %}
+                    <!-- Current Active Tab WITH "show active" classes in DIV tag -->
+                        <div class="tm-recommended-place-wrap">
+                            <div class="tm-recommended-place" >
+                                <img src="{{ MEDIA_URL }}/media/{{ row.image }}" alt="{{ row.place_name }}" class="img-fluid tm-recommended-img">
+                                <div class="tm-recommended-description-box">
+                                    <h3 class="tm-recommended-title">{{row.place_name}}</h3>
+                                    <p class="tm-text-highlight">{{row.place}}</p>
+                                    <p class="tm-text-gray">{{row.des}}</p>   
+                                </div>
+                                <a href="{% url 'tourist_details' row.id %}" class="tm-recommended-price-box">
+                                    <p class="tm-recommended-price">{{row.price}}/-</p>
+                                    <p class="tm-recommended-price-link">Book Now</p>
+                                </a>                        
+                            </div>
+{% endfor %}
+
+{% endblock %}
